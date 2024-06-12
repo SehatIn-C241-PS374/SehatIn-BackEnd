@@ -3,7 +3,7 @@ const { storage, bucketName, fileName } = require('../config/config');
 const geolib = require('geolib');
 
 const fetchData = async () => {
-  const response = await axios.get(process.env.JSON_FILE_URL);
+  const response = await axios.get(process.env.JSON_STORE_URL);
   return response.data;
 };
 
@@ -22,7 +22,8 @@ const updateJsonFile = async (data) => {
 
 const getStoreByName = async (name) => {
   const data = await fetchData();
-  return data.find(store => store.nama_toko === name);
+  const lowerCaseName = name.toLowerCase();
+  return data.filter(store => store.nama_toko.toLowerCase().includes(lowerCaseName));
 };
 
 const addStore = async (newStore) => {

@@ -13,7 +13,7 @@ const getStoreByName = async (req, res) => {
   const store = await storeService.getStoreByName(req.params.name);
   if (store) {
     res.json({ 
-      message: 'Berhasil mendapatkan toko', 
+      message: `Berhasil mendapatkan ${store.length} toko`, 
       status: 'success', 
       data: store 
     });

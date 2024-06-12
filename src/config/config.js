@@ -5,10 +5,12 @@ const storage = new Storage({
 });
 
 const bucketName = process.env.GOOGLE_STORAGE_BUCKET;
-const fileName = process.env.JSON_FILE_NAME;
+const storeName = process.env.JSON_STORE_NAME;
+const fruitsVegetablesFileName = process.env.JSON_FRUITS_VEGETABLES_URL;
 
 module.exports = {
   storage,
   bucketName,
-  fileName,
+  storeName,
+  fruitsVegetablesFileName,
 };
