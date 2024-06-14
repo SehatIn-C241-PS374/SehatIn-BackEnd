@@ -14,10 +14,11 @@ const getFruitOrVegetableByName = async (req, res) => {
     const item = await fruitsVegetablesService.getFruitOrVegetableByName(name);
 
     if (item) {
+        const modifiedItem = { item: item[name] };
         res.json({
             message: 'Berhasil mendapatkan data',
             status: 'success',
-            data: item
+            data: modifiedItem
         });
     } else {
         res.status(404).json({
